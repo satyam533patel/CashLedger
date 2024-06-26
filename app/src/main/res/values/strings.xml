@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CashLedger</string>
+    //sign_up
+    <string name="sign_up_description">Enter your name, email id and password.</string>
+    <string name="name">Name</string>
+    <string name="email_id">Email id</string>
+    <string name="password">Password</string>
 </resources>
