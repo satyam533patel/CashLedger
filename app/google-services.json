@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550879584584",
+    "project_id": "cashledger-3242b",
+    "storage_bucket": "cashledger-3242b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550879584584:android:3c97d1fc3564da18fc937d",
+        "android_client_info": {
+          "package_name": "com.example.cashledger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC371lJ5Zj0tT9QraTEHaT6LIhgJFgdTVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
