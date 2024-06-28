@@ -14,10 +14,15 @@
         android:theme="@style/Theme.CashLedger"
         tools:targetApi="31">
         <activity
-            android:name=".Signin_activity"
+            android:name=".CheckInPage"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Signin_activity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SignupActivity"
             android:exported="true"

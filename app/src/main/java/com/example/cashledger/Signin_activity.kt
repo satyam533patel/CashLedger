@@ -34,7 +34,7 @@ class Signin_activity : AppCompatActivity() {
                 firebaseAuth.signInWithEmailAndPassword(email, passwd)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val intent = Intent(this, MainActivity::class.java)
+                            val intent = Intent(this, CheckInPage::class.java)
                             startActivity(intent)
                         } else {
                             val exception = task.exception
