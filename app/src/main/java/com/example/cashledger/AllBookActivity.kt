@@ -5,32 +5,23 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class CheckInPage : AppCompatActivity() {
+class AllBookActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_check_in_page)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar_checkin_activity)
-        setSupportActionBar(toolbar)
-        val actionBar = supportActionBar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24)
-        }
-        toolbar.setNavigationOnClickListener{onBackPressed()}
+        setContentView(R.layout.activity_all_book)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val btnAddBook = findViewById<Button>(R.id.show_add_book)
-        btnAddBook.setOnClickListener{
-            val intent = Intent(this, AllBookActivity::class.java)
+        val btnNewBook = findViewById<Button>(R.id.newBook)
+        btnNewBook.setOnClickListener {
+            val intent = Intent(this, AddBookActivity::class.java)
             startActivity(intent)
         }
     }

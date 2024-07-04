@@ -14,10 +14,16 @@
         android:theme="@style/Theme.CashLedger"
         tools:targetApi="31">
         <activity
+            android:name=".AddBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".CheckInPage"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Signin_activity"
             android:exported="true"
