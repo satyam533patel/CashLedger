@@ -14,6 +14,11 @@ class CheckInPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_check_in_page)
+        val btnAddBook = findViewById<Button>(R.id.show_add_book)
+        btnAddBook.setOnClickListener{
+            val intent = Intent(this, AllBookActivity::class.java)
+            startActivity(intent)
+        }
         val toolbar = findViewById<Toolbar>(R.id.toolbar_checkin_activity)
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
@@ -26,12 +31,6 @@ class CheckInPage : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
-
-        val btnAddBook = findViewById<Button>(R.id.show_add_book)
-        btnAddBook.setOnClickListener{
-            val intent = Intent(this, AllBookActivity::class.java)
-            startActivity(intent)
         }
     }
 }

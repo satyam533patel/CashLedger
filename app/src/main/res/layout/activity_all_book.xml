@@ -1,77 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Toolbar with back button -->
+
+    <!-- Header TextViews -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_all_books"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <TextView
         android:id="@+id/showBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:textSize="32dp"
+        android:textSize="32sp"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
         android:text="Show all Books"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@id/toolbar_all_books" />
 
     <TextView
         android:id="@+id/totalBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/showBook"
+        android:layout_below="@id/showBook"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="186dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="226dp"
         android:text="Total Balance : "
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="24dp" />
+        android:textSize="24sp" />
 
+    <!-- RecyclerView to display books -->
     <TextView
-        android:id="@+id/value"
-        android:layout_width="70dp"
+        android:id="@+id/Balancevalue"
+        android:layout_width="169dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/showBook"
+        android:layout_below="@id/showBook"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="98dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="36dp"
         android:text="0.0"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="24dp" />
+        android:textSize="24sp" />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/newBook"
-        android:layout_below="@+id/totalBalance"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_below="@id/Balancevalue"
+        android:layout_above="@id/newBook"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/totalBalance"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
-
-    </LinearLayout>
-
+    <!-- FloatingActionButton to add a new book -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
         android:id="@+id/newBook"
-        android:src="@drawable/add_book"
-        android:foregroundGravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="30dp"
-        android:background="@drawable/background_gradient">
-
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/background_gradient"
+        android:contentDescription="Add a new book"
+        android:foregroundGravity="center"
+        app:srcCompat="@drawable/add_book" />
 
 </RelativeLayout>
