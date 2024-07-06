@@ -27,7 +27,7 @@ class AllBookActivity : AppCompatActivity() {
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.mRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        bookListAdapter = BookListAdapter(this, emptyList()) // Initialize with an empty list
+        bookListAdapter = BookListAdapter(this, emptyList())
         recyclerView.adapter = bookListAdapter
 
         // Initialize Balance TextView
@@ -52,7 +52,7 @@ class AllBookActivity : AppCompatActivity() {
                     val book = snapshot.getValue(Book::class.java)
                     book?.let { books.add(it) }
                 }
-                val totalBalance = updateBooksAndCalculateBalance(books)
+                val totalBalance: Double = bookListAdapter.updateBooks(books)
                 balanceTextView.text = String.format("%.2f", totalBalance)
             }
 
@@ -61,11 +61,5 @@ class AllBookActivity : AppCompatActivity() {
                 databaseError.toException().printStackTrace()
             }
         })
-    }
-
-    // Update the RecyclerView adapter with new data and calculate total balance
-    private fun updateBooksAndCalculateBalance(books: List<Book>): Double {
-        bookListAdapter.updateBooks(books)
-        return books.sumByDouble { it.balance }
     }
 }
