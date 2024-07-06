@@ -28,24 +28,24 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="24sp" />
 
+    <!-- RecyclerView to display books -->
     <TextView
-        android:id="@+id/value"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/Balancevalue"
+        android:layout_width="140dp"
+        android:layout_height="42dp"
         android:layout_below="@id/showBook"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="98dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="26dp"
         android:text="0.0"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="24sp" />
 
-    <!-- RecyclerView to display books -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@id/value"
+        android:layout_below="@id/Balancevalue"
         android:layout_above="@id/newBook"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
