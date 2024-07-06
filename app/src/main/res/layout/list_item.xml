@@ -25,7 +25,7 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/deleteButton"
+            app:layout_constraintEnd_toStartOf="@id/editButton"
             tools:text="Book Name" />
 
         <!-- Balance -->
@@ -50,6 +50,19 @@
             android:padding="8dp"
             app:srcCompat="@drawable/deletebutton"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Edit Button -->
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="edit"
+            android:padding="8dp"
+            app:srcCompat="@drawable/editbutton"
+            app:layout_constraintEnd_toStartOf="@id/deleteButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 

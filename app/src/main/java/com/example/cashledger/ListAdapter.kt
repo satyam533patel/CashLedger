@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.FirebaseDatabase
 
-class BookListAdapter(private val context: Context, private var bookList: List<Book>) :
-    RecyclerView.Adapter<BookListAdapter.ViewHolder>() {
+class BookListAdapter(
+    private val context: Context,
+    private var bookList: List<Book>,
+    private val onEditClick: (Book) -> Unit,
+    private val onDeleteClick: (Book) -> Unit
+) : RecyclerView.Adapter<BookListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
@@ -35,27 +38,20 @@ class BookListAdapter(private val context: Context, private var bookList: List<B
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvBookName: TextView = itemView.findViewById(R.id.textViewBookName)
         private val tvBookBalance: TextView = itemView.findViewById(R.id.textViewBalance)
+        private val btnEdit: ImageButton = itemView.findViewById(R.id.editButton)
         private val btnDelete: ImageButton = itemView.findViewById(R.id.deleteButton)
 
         fun bind(book: Book) {
             tvBookName.text = "Book Name: ${book.name}"
-            tvBookBalance.text = "Balance: ${book.balance}"
+            tvBookBalance.text = "Balance: ${String.format("%.2f", book.balance)}"
+
+            btnEdit.setOnClickListener {
+                onEditClick(book)
+            }
 
             btnDelete.setOnClickListener {
-                deleteBook(book)
+                onDeleteClick(book)
             }
-        }
-
-        private fun deleteBook(book: Book) {
-            // Remove the book from Firebase
-            val firebaseRef = FirebaseDatabase.getInstance().getReference("Books")
-            firebaseRef.child(book.id).removeValue()
-
-            // Update the list
-            val updatedList = bookList.toMutableList().apply {
-                remove(book)
-            }
-            updateBooks(updatedList)
         }
     }
 }

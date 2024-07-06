@@ -27,11 +27,13 @@ class AllBookActivity : AppCompatActivity() {
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.mRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        bookListAdapter = BookListAdapter(this, emptyList())
-        recyclerView.adapter = bookListAdapter
 
         // Initialize Balance TextView
         balanceTextView = findViewById(R.id.Balancevalue)
+
+        // Initialize BookListAdapter with edit and delete handlers
+        bookListAdapter = BookListAdapter(this, emptyList(), this::editBook, this::deleteBook)
+        recyclerView.adapter = bookListAdapter
 
         // Set onClickListener for Floating Action Button (newBook)
         val btnNewBook = findViewById<FloatingActionButton>(R.id.newBook)
@@ -61,5 +63,18 @@ class AllBookActivity : AppCompatActivity() {
                 databaseError.toException().printStackTrace()
             }
         })
+    }
+
+    private fun editBook(book: Book) {
+        // Handle edit action
+        // For example, start an activity to edit the book details
+//        val intent = Intent(this, EditBookActivity::class.java)
+//        intent.putExtra("bookId", book.id)
+//        startActivity(intent)
+    }
+    private fun deleteBook(book: Book) {
+        // Handle delete action
+        // For example, remove the book from Firebase
+        firebaseRef.child(book.id).removeValue()
     }
 }

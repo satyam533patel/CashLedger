@@ -24,8 +24,7 @@ class AddBookActivity : AppCompatActivity() {
 
         // Set onClickListener for Cancel button
         binding.btnCancel.setOnClickListener {
-            val intent = Intent(this, AllBookActivity::class.java)
-            startActivity(intent)
+            navigateToAllBooks()
         }
 
         // Set onClickListener for Save button
@@ -85,7 +84,7 @@ class AddBookActivity : AppCompatActivity() {
             val book = Book(bookId, bookName, bookBalance)
             firebaseRef.child(bookId).setValue(book).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(this, AllBookActivity::class.java))
+                    navigateToAllBooks()
                 } else {
                     task.exception?.printStackTrace()
                 }
@@ -93,5 +92,12 @@ class AddBookActivity : AppCompatActivity() {
         } else {
             binding.bookName.error = "Error saving book. Please try again."
         }
+    }
+
+    // Function to navigate to AllBookActivity
+    private fun navigateToAllBooks() {
+        val intent = Intent(this, AllBookActivity::class.java)
+        startActivity(intent)
+        finish() // Optional: Finish current activity to prevent back navigation to AddBookActivity
     }
 }
