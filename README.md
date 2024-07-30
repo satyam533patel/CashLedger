@@ -3,7 +3,7 @@ Transctions tracking and budget planning app. This application is designed to he
 
 ## App features and utilities
 
-### 1. Secure uer account creation and login
+### 1. Secure User Account Creation and Login
    Utilized firebase for fast and safe user accounts management
    
 ![image](https://github.com/user-attachments/assets/72eaf5c9-06c5-4a34-bc42-326bd8fb24f6)
